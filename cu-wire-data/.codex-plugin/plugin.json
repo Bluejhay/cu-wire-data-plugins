@@ -1,7 +1,7 @@
 {
   "name": "cu-wire-data",
   "version": "0.2.0",
-  "description": "Read-only licensed CU Wire Data research, including credit unions, HMDA, CUSOs, banks and regulatory data.",
+  "description": "Read-only licensed CU Wire Data research, including credit unions, HMDA, CUSOs, M&A and regulatory data.",
   "author": {
     "name": "CU Wire Data",
     "url": "https://cuwiredata.com"
@@ -21,7 +21,7 @@
   "interface": {
     "displayName": "CU Wire Data",
     "shortDescription": "Query licensed CU, HMDA and market data",
-    "longDescription": "CU Wire Data gives Codex read-only access to its licensed research catalog through a hosted MCP server. Query full credit-union profiles, original Call Report fields, HMDA mortgage lending and history, CUSOs, banks, fintech, regulatory data, leadership and geographic markets. Installing the plugin does not grant a data license; connect a licensed CU Wire Data account through browser-based OAuth approval.",
+    "longDescription": "CU Wire Data gives Codex read-only access to its licensed research catalog through a hosted MCP server. Query full credit-union profiles, original Call Report fields, HMDA mortgage lending and history, CUSOs, CU acquisitions of banks, regulatory data, leadership and geographic markets. Installing the plugin does not grant a data license; connect a licensed CU Wire Data account through browser-based OAuth approval.",
     "developerName": "CU Wire Data",
     "category": "Data & Analytics",
     "capabilities": [
