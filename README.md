@@ -15,7 +15,7 @@ codex mcp login cu-wire-data
 Approve the browser connection while signed in to a CU Wire Data account with
 Data Access. Restart the Codex desktop app or start a new task, then ask Codex to
 use `cuwiredata_get_industry_summary`. Existing tasks can retain an old tool
-list. This route registers the three read-only tools directly; it does not add
+list. This route registers the read-only research tools directly; it does not add
 the optional plugin's skill and marketplace listing. Neither route grants a
 Data Access license by itself.
 

@@ -19,7 +19,7 @@ codex mcp login cu-wire-data
 Approve the browser connection while signed in to a CU Wire Data account with
 Data Access. Restart the Codex desktop app or start a new task, then ask Codex to
 use `cuwiredata_get_industry_summary`. Existing tasks can retain an old tool
-list. This direct route exposes the three read-only tools without the optional
+list. This direct route exposes the read-only research tools without the optional
 plugin skill. Neither route grants a Data Access license by itself.
 
 CU Wire Data is not yet in the built-in public plugin catalog. The Git
@@ -83,6 +83,18 @@ https://cu-wire-mcp.vercel.app/data-mcp
 - `cuwiredata_get_industry_summary`
 - `cuwiredata_search_institutions`
 - `cuwiredata_get_institution`
+- `cuwiredata_get_history`
+- `cuwiredata_compare_institutions`
+- `cuwiredata_get_peers`
+- `cuwiredata_get_branches`
+- `cuwiredata_get_industry_trends`
+- `cuwiredata_get_mergers`
+- `cuwiredata_get_vendor_relationships`
+- `cuwiredata_list_datasets`
+- `cuwiredata_get_dataset`
+- `cuwiredata_get_hmda`
+- `cuwiredata_get_institution_profile`
+- `cuwiredata_get_call_report`
 
 The plugin does not include customer credentials.
 
