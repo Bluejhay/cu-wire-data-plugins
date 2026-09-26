@@ -1,6 +1,6 @@
 ---
 name: cu-wire-data
-description: Use CU Wire Data through the hosted read-only MCP server for licensed U.S. credit union data. Trigger when the user asks for CU Wire Data, credit union industry summaries, credit union institution search, NCUA charter lookups, HMDA mortgage lending, CUSO networks, banks, regulatory data, or other research through the CU Wire Data product.
+description: Use CU Wire Data through the hosted read-only MCP server for licensed U.S. credit union data. Trigger when the user asks for CU Wire Data, credit union industry summaries, credit union institution search, NCUA charter lookups, HMDA mortgage lending, CUSO networks, M&A, regulatory data, or other research through the CU Wire Data product.
 ---
 
 # CU Wire Data
@@ -103,7 +103,7 @@ When summarizing tool output:
 
 ## Full research access
 
-Start with `cuwiredata_list_datasets` for a requested family beyond core financial summaries. Use `cuwiredata_get_dataset` with a returned ID and follow its section pointers to nested data. Follow `next_offset` with the same `dataset_version` until all records needed for the answer have been retrieved; never describe a partial page as a complete population. Restart if the dataset changes. This includes HMDA, CUSOs, banks/FDIC, fintech, regulations, enforcement, FedNow, CDFI, leadership, fees, Canadian institutions, rankings and geographic markets.
+Start with `cuwiredata_list_datasets` for a requested family beyond core financial summaries. Use `cuwiredata_get_dataset` with a returned ID and follow its section pointers to nested data. Follow `next_offset` with the same `dataset_version` until all records needed for the answer have been retrieved; never describe a partial page as a complete population. Restart if the dataset changes. This includes HMDA, CUSOs, CU acquisitions of banks, regulations, enforcement, FedNow, CDFI, leadership, fees, Canadian institutions, rankings and geographic markets.
 
 `cuwiredata_get_hmda` defaults to the CU filer list. Use `where: {"n":"13"}` for a charter, or `where: {"yr":2025}` for a filing year. Preserve annual history and the actual `yr` on each filer. The dataset year is not every filer's year. `hel` means home improvement, not HELOC; CUSO data reflects filings under the CUSO's own LEI.
 
