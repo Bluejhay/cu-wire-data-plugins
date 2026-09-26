@@ -1,6 +1,6 @@
 ---
 name: cu-wire-data
-description: Use CU Wire Data through the hosted read-only MCP server for licensed U.S. credit union data. Trigger when the user asks for CU Wire Data, credit union industry summaries, credit union institution search, or NCUA charter lookups through the CU Wire Data product.
+description: Use CU Wire Data through the hosted read-only MCP server for licensed U.S. credit union data. Trigger when the user asks for CU Wire Data, credit union industry summaries, credit union institution search, NCUA charter lookups, HMDA mortgage lending, CUSO networks, banks, regulatory data, or other research through the CU Wire Data product.
 ---
 
 # CU Wire Data
@@ -58,6 +58,18 @@ The hosted MCP server exposes read-only tools:
 - `cuwiredata_get_industry_summary`
 - `cuwiredata_search_institutions`
 - `cuwiredata_get_institution`
+- `cuwiredata_get_history`
+- `cuwiredata_compare_institutions`
+- `cuwiredata_get_peers`
+- `cuwiredata_get_branches`
+- `cuwiredata_get_industry_trends`
+- `cuwiredata_get_mergers`
+- `cuwiredata_get_vendor_relationships`
+- `cuwiredata_list_datasets`
+- `cuwiredata_get_dataset`
+- `cuwiredata_get_hmda`
+- `cuwiredata_get_institution_profile`
+- `cuwiredata_get_call_report`
 
 ## Usage Rules
 
@@ -87,3 +99,14 @@ When summarizing tool output:
 - Get the current U.S. credit union industry summary.
 - Find the largest credit unions in North Carolina.
 - Look up Navy Federal by NCUA charter 5536.
+
+
+## Full research access
+
+Start with `cuwiredata_list_datasets` for a requested family beyond core financial summaries. Use `cuwiredata_get_dataset` with a returned ID and follow its section pointers to nested data. Follow `next_offset` with the same `dataset_version` until all records needed for the answer have been retrieved; never describe a partial page as a complete population. Restart if the dataset changes. This includes HMDA, CUSOs, banks/FDIC, fintech, regulations, enforcement, FedNow, CDFI, leadership, fees, Canadian institutions, rankings and geographic markets.
+
+`cuwiredata_get_hmda` defaults to the CU filer list. Use `where: {"n":"13"}` for a charter, or `where: {"yr":2025}` for a filing year. Preserve annual history and the actual `yr` on each filer. The dataset year is not every filer's year. `hel` means home improvement, not HELOC; CUSO data reflects filings under the CUSO's own LEI.
+
+Use `cuwiredata_get_institution_profile` for all approved financial profile fields, and `cuwiredata_get_call_report` for original reported field strings. Keep these release IDs distinct from independently refreshed HMDA and other research datasets.
+
+A tool-list refresh or fresh Codex chat may be needed after the server expands. If existing authenticated calls succeed, do not create another key or request another login solely to discover the added tools.

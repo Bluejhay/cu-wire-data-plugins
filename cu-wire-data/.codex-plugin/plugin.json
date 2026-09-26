@@ -1,7 +1,7 @@
 {
   "name": "cu-wire-data",
-  "version": "0.1.2",
-  "description": "Read-only, licensed CU Wire Data access for U.S. credit union industry data in Codex.",
+  "version": "0.2.0",
+  "description": "Read-only licensed CU Wire Data research, including credit unions, HMDA, CUSOs, banks and regulatory data.",
   "author": {
     "name": "CU Wire Data",
     "url": "https://cuwiredata.com"
@@ -20,8 +20,8 @@
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "CU Wire Data",
-    "shortDescription": "Query licensed credit union data",
-    "longDescription": "CU Wire Data gives Codex read-only access to licensed U.S. credit union industry data through a hosted MCP server. Use it to retrieve current industry aggregates, search federally insured credit unions, and look up institutions by NCUA charter number. Installing the plugin does not grant data access; users connect a licensed CU Wire Data account through browser-based OAuth approval.",
+    "shortDescription": "Query licensed CU, HMDA and market data",
+    "longDescription": "CU Wire Data gives Codex read-only access to its licensed research catalog through a hosted MCP server. Query full credit-union profiles, original Call Report fields, HMDA mortgage lending and history, CUSOs, banks, fintech, regulatory data, leadership and geographic markets. Installing the plugin does not grant a data license; connect a licensed CU Wire Data account through browser-based OAuth approval.",
     "developerName": "CU Wire Data",
     "category": "Data & Analytics",
     "capabilities": [
@@ -31,9 +31,9 @@
     "privacyPolicyURL": "https://cu-wire-mcp.vercel.app/connector-privacy.html",
     "termsOfServiceURL": "https://cuwiredata.com/terms",
     "defaultPrompt": [
-      "Get the current credit union industry summary.",
-      "Find the largest North Carolina credit unions.",
-      "Look up Navy Federal by charter 5536."
+      "Show the available CU Wire Data research datasets.",
+      "Get HMDA mortgage lending and annual history for Navy Federal.",
+      "Compare credit unions and their CUSO and vendor relationships."
     ],
     "brandColor": "#171717"
   }
