@@ -1,7 +1,7 @@
 {
   "name": "cu-wire-data",
-  "version": "0.1.2",
-  "description": "Read-only, licensed CU Wire Data access for U.S. credit union industry data in Codex.",
+  "version": "0.2.0",
+  "description": "Read-only licensed CU Wire Data research, including credit unions, HMDA, CUSOs, banks and regulatory data.",
   "author": {
     "name": "CU Wire Data",
     "url": "https://cuwiredata.com"
