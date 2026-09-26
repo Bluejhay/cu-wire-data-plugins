@@ -1,19 +1,28 @@
 # CU Wire Data Plugins
 
-Public plugin marketplace for CU Wire Data.
+Plugin package and connection instructions for CU Wire Data.
 
-## Customer Flow
+## Connect Codex now (no Git required)
 
-Customers should not need this Git marketplace directly. The intended customer
-experience is: open the Claude or Codex connector/plugin library, search for
-`CU Wire Data`, click **Connect**, sign in to CU Wire Data, approve read-only
-access, and return to the assistant.
+The hosted read-only MCP server works without installing this plugin marketplace.
+In Terminal on the computer running Codex, use the [Codex CLI](https://learn.chatgpt.com/docs/codex/cli):
 
-This Git marketplace is the tester/developer install path until CU Wire Data is
-accepted into the built-in public catalog.
+```bash
+codex mcp add cu-wire-data --url https://cu-wire-mcp.vercel.app/data-mcp
+codex mcp login cu-wire-data
+```
 
-Installing the plugin never grants data access. Every install path below ends
-with connecting a licensed CU Wire Data account.
+Approve the browser connection while signed in to a CU Wire Data account with
+Data Access. Restart the Codex desktop app or start a new task, then ask Codex to
+use `cuwiredata_get_industry_summary`. Existing tasks can retain an old tool
+list. This route registers the three read-only tools directly; it does not add
+the optional plugin's skill and marketplace listing. Neither route grants a
+Data Access license by itself.
+
+CU Wire Data is not yet in the built-in public plugin catalog. The Git
+marketplace below is an optional tester/developer path. It uses system Git, so
+macOS Git or Xcode setup can block installation even while the hosted connector
+is healthy. The direct MCP route above avoids that dependency.
 
 ## Claude Code Tester Install
 
@@ -40,7 +49,7 @@ OAuth server.
 If tools do not appear after connecting, restart Claude Code or open a new
 session.
 
-## Codex Tester Install
+## Optional Codex plugin install
 
 ```bash
 codex plugin marketplace add CUWireDatav2/cu-wire-data-plugins
