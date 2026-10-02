@@ -77,7 +77,7 @@ yet. Use the connect step for your assistant above. Do not set
 `CUWIREDATA_API_KEY` for the public plugin path.
 
 **Tools return "Invalid or revoked API key"**: the connected account's key is
-revoked or not licensed for Data Access. Contact data@cuwiredata.com.
+revoked or not licensed for Data Access. Contact info@thecreditunionwire.com.
 
 **The skill loads but no `cuwiredata_*` tools exist**: the client is holding a
 stale tool list. Reconnect, then start a new session or task.
