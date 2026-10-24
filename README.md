@@ -8,7 +8,7 @@ The hosted read-only MCP server works without installing this plugin marketplace
 In Terminal on the computer running Codex, use the [Codex CLI](https://learn.chatgpt.com/docs/codex/cli):
 
 ```bash
-codex mcp add sloe-data --url https://cu-wire-mcp.vercel.app/data-mcp
+codex mcp add sloe-data --url https://mcp.sloedata.com/data-mcp
 codex mcp login sloe-data
 ```
 
