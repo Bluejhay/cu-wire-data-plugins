@@ -1,9 +1,0 @@
-{
-  "mcpServers": {
-    "cu-wire-data": {
-      "type": "http",
-      "url": "https://cu-wire-mcp.vercel.app/data-mcp",
-      "note": "Read-only CU Wire Data MCP server. Uses OAuth account connect through cuwiredata.com; installing the plugin does not grant data access. The server exposes industry summary, institution search, and institution lookup tools."
-    }
-  }
-}

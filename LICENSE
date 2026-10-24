@@ -1,12 +1,12 @@
-CU Wire Data Plugin License
+Sloe Data Plugin License
 
 Copyright (c) 2026 The Credit Union Wire LLC. All rights reserved.
 
-This repository contains the CU Wire Data plugin package: manifests, connector
+This repository contains the Sloe Data plugin package: manifests, connector
 configuration, skill instructions, and documentation.
 
 Permission is granted to install and use this plugin package for the sole
-purpose of connecting a licensed CU Wire Data account to a supported assistant
+purpose of connecting a licensed Sloe Data account to a supported assistant
 (Claude Code, Codex, or another MCP client).
 
 You may not:
@@ -18,9 +18,9 @@ You may not:
 - use the package, or data retrieved through it, to build or populate a
   competing dataset, warehouse, or product.
 
-Installing this package grants no right to CU Wire Data itself. Access to CU
-Wire Data requires a separate licensed CU Wire Data account, and use of that
-data is governed by the CU Wire Data terms at https://cuwiredata.com/terms.
+Installing this package grants no right to Sloe Data itself. Access to Sloe
+Data requires a separate licensed Sloe Data account, and use of that
+data is governed by the Sloe Data terms at https://sloedata.com/terms.
 
 THE PACKAGE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,

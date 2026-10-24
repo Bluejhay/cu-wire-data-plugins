@@ -1,21 +1,21 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-  "name": "cu-wire-data",
-  "description": "CU Wire Data plugins for read-only, licensed U.S. credit union industry data access.",
+  "name": "sloe-data",
+  "description": "Sloe Data plugins for read-only, licensed U.S. credit union data access.",
   "owner": {
-    "name": "CU Wire Data",
+    "name": "Sloe Data",
     "email": "info@thecreditunionwire.com"
   },
   "plugins": [
     {
-      "name": "cu-wire-data",
-      "description": "Read-only, licensed CU Wire Data access for U.S. credit union industry data in Claude Code and Codex.",
+      "name": "sloe-data",
+      "description": "Read-only licensed Sloe Data research on U.S. credit unions: financials, peer benchmarking, HMDA mortgage lending, CUSOs, mergers and regulatory data.",
       "author": {
-        "name": "CU Wire Data",
-        "url": "https://cuwiredata.com"
+        "name": "Sloe Data",
+        "url": "https://sloedata.com"
       },
       "category": "data",
-      "source": "./cu-wire-data",
+      "source": "./sloe-data",
       "homepage": "https://cu-wire-mcp.vercel.app/connector-docs.html"
     }
   ]

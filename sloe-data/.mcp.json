@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "sloe-data": {
+      "type": "http",
+      "url": "https://cu-wire-mcp.vercel.app/data-mcp"
+    }
+  }
+}
