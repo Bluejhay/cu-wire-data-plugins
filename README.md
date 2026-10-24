@@ -27,7 +27,7 @@ is healthy. The direct MCP route above avoids that dependency.
 ## Claude Code Tester Install
 
 ```bash
-claude plugin marketplace add CUWireDatav2/cu-wire-data-plugins
+claude plugin marketplace add Bluejhay/cu-wire-data-plugins
 ```
 
 ```bash
@@ -52,7 +52,7 @@ session.
 ## Optional Codex plugin install
 
 ```bash
-codex plugin marketplace add CUWireDatav2/cu-wire-data-plugins
+codex plugin marketplace add Bluejhay/cu-wire-data-plugins
 ```
 
 ```bash
