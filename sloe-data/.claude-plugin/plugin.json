@@ -1,6 +1,6 @@
 {
   "name": "sloe-data",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Read-only licensed Sloe Data research on U.S. credit unions: financials, peer benchmarking, HMDA mortgage lending, CUSOs, mergers and regulatory data.",
   "author": {
     "name": "Sloe Data",
@@ -18,5 +18,8 @@
     "analytics"
   ],
   "icon": "./.claude-plugin/icon.png",
-  "privacyPolicyUrl": "https://mcp.sloedata.com/connector-privacy.html"
+  "privacyPolicyUrl": "https://mcp.sloedata.com/connector-privacy.html",
+  "supportUrl": "mailto:info@thecreditunionwire.com",
+  "termsOfServiceUrl": "https://sloedata.com/terms",
+  "documentationUrl": "https://mcp.sloedata.com/connector-docs.html"
 }
