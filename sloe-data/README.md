@@ -15,7 +15,7 @@ with Data Access. See [sloedata.com/pricing](https://sloedata.com/pricing).
 ## What the plugin contains
 
 - A connection to the hosted, read-only Sloe Data MCP server at
-  `https://cu-wire-mcp.vercel.app/data-mcp`.
+  `https://mcp.sloedata.com/data-mcp`.
 - One skill that tells the assistant how to use the tools, keep period and
   source context, and stop instead of guessing when the connection fails.
 
@@ -37,7 +37,7 @@ pasted into the chat.
 Codex users can also connect without the plugin:
 
 ```bash
-codex mcp add sloe-data --url https://cu-wire-mcp.vercel.app/data-mcp
+codex mcp add sloe-data --url https://mcp.sloedata.com/data-mcp
 codex mcp login sloe-data
 ```
 
@@ -67,8 +67,8 @@ The connector sends each tool call's arguments (for example a credit union name,
 charter number, or dataset name) to the Sloe Data MCP server, which returns the
 requested data. It does not send your conversation, and it does not store
 requests or tokens. See the
-[connector privacy policy](https://cu-wire-mcp.vercel.app/connector-privacy.html)
-and [documentation](https://cu-wire-mcp.vercel.app/connector-docs.html).
+[connector privacy policy](https://mcp.sloedata.com/connector-privacy.html)
+and [documentation](https://mcp.sloedata.com/connector-docs.html).
 
 ## Boundaries
 
