@@ -1,6 +1,6 @@
 {
   "name": "sloe-data",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "Read-only licensed Sloe Data research on U.S. credit unions: financials, peer benchmarking, HMDA mortgage lending, CUSOs, mergers and regulatory data.",
   "author": {
     "name": "Sloe Data",

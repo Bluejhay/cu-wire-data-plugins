@@ -118,4 +118,4 @@ Start with `sloedata_list_datasets` for a requested family beyond core financial
 
 Use `sloedata_get_institution_profile` for all approved financial profile fields, and `sloedata_get_call_report` for original reported field strings. Keep these release IDs distinct from independently refreshed HMDA and other research datasets.
 
-A tool-list refresh or fresh Codex chat may be needed after the server expands. If existing authenticated calls succeed, do not create another key or request another login solely to discover the added tools.
+A tool-list refresh, or a new chat or task, may be needed after the server adds tools. If existing authenticated calls succeed, do not create another key or request another login solely to discover the added tools.
