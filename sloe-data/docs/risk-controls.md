@@ -1,11 +1,11 @@
-# CU Wire Data Plugin Risk Controls
+# Sloe Data Plugin Risk Controls
 
 This plugin is public-installable but private-data-gated.
 
 ## Controls
 
-- **Access**: Requires a licensed CU Wire Data account; no customer credential or demo key is bundled.
-- **OAuth primary path**: Claude and Codex users should connect through the platform browser flow: install/search for CU Wire Data, click **Connect**, sign in to CU Wire Data, approve read-only access, and return to the assistant.
+- **Access**: Requires a licensed Sloe Data account; no customer credential or demo key is bundled.
+- **OAuth primary path**: Claude and Codex users should connect through the platform browser flow: install/search for Sloe Data, click **Connect**, sign in to Sloe Data, approve read-only access, and return to the assistant.
 - **Auth challenge**: the hosted server answers an unauthenticated or expired connection with an HTTP 401 and a `WWW-Authenticate` header naming its protected resource metadata, which is what lets a client offer Connect and refresh an expired token.
 - **Manual bearer fallback**: Existing API keys remain supported for direct API or custom MCP clients through the `Authorization: Bearer ...` header. This is not the normal public plugin setup path.
 - **Credential handling**: No keys, OAuth codes, connector tokens, or bearer tokens should appear in prompts, URLs, screenshots, repository files, docs, tickets, or marketplace submission text.
@@ -19,7 +19,7 @@ This plugin is public-installable but private-data-gated.
 
 Use:
 
-> Connect CU Wire Data to query licensed, source-bound U.S. credit union data from Claude or Codex.
+> Connect Sloe Data to query licensed, source-bound U.S. credit union data from Claude or Codex.
 
 Avoid:
 

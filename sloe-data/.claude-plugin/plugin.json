@@ -1,0 +1,20 @@
+{
+  "name": "sloe-data",
+  "version": "0.3.0",
+  "description": "Read-only licensed Sloe Data research on U.S. credit unions: financials, peer benchmarking, HMDA mortgage lending, CUSOs, mergers and regulatory data.",
+  "author": {
+    "name": "Sloe Data",
+    "url": "https://sloedata.com"
+  },
+  "homepage": "https://cu-wire-mcp.vercel.app/connector-docs.html",
+  "repository": "https://github.com/Bluejhay/cu-wire-data-plugins",
+  "license": "Proprietary",
+  "keywords": [
+    "credit-unions",
+    "sloe-data",
+    "financial-data",
+    "hmda",
+    "ncua",
+    "analytics"
+  ]
+}

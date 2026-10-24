@@ -1,0 +1,30 @@
+Sloe Data Plugin License
+
+Copyright (c) 2026 The Credit Union Wire LLC. All rights reserved.
+
+This repository contains the Sloe Data plugin package: manifests, connector
+configuration, skill instructions, and documentation.
+
+Permission is granted to install and use this plugin package for the sole
+purpose of connecting a licensed Sloe Data account to a supported assistant
+(Claude Code, Codex, or another MCP client).
+
+You may not:
+
+- redistribute, sublicense, resell, or publish this package or a derivative of
+  it under another name;
+- modify the package to remove or weaken its licensing, authentication, or
+  data-handling boundaries;
+- use the package, or data retrieved through it, to build or populate a
+  competing dataset, warehouse, or product.
+
+Installing this package grants no right to Sloe Data itself. Access to Sloe
+Data requires a separate licensed Sloe Data account, and use of that
+data is governed by the Sloe Data terms at https://sloedata.com/terms.
+
+THE PACKAGE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER
+LIABILITY ARISING FROM, OUT OF, OR IN CONNECTION WITH THE PACKAGE OR THE USE OR
+OTHER DEALINGS IN THE PACKAGE.
