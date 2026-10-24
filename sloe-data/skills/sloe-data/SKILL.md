@@ -101,6 +101,15 @@ When summarizing tool output:
 - Look up Navy Federal by NCUA charter 5536.
 
 
+## Choosing a tool
+
+- **One institution:** start with `sloedata_get_institution` for the core summary. Use `sloedata_get_institution_profile` for every approved profile field and history, and `sloedata_get_call_report` for the original reported field strings.
+- **Call Report fields:** read `/records`, then each record's `/fields`. Field definitions are in the `call-report-dictionary` dataset; check that its period matches the release before applying it.
+- **Populations beyond insured U.S. credit unions** (privately insured, Canadian, CUSOs and so on): `sloedata_search_institutions` covers federally insured credit unions only, so start from `sloedata_list_datasets`.
+- **HMDA lenders:** search `sloedata_get_hmda` with `lender` or `q` before saying a lender has no data. HMDA is refreshed separately from the institution profile. When several lenders match, resolve which one the user means before answering.
+- **Paging:** pass back the `release_id`, `platform_release_id` or `dataset_version` each result returns, so every page comes from the same release. If a call returns `dataset_changed` or `platform_release_changed`, start the read again.
+- **Missing values:** a null is a missing value, not zero.
+
 ## Full research access
 
 Start with `sloedata_list_datasets` for a requested family beyond core financial summaries. Use `sloedata_get_dataset` with a returned ID and follow its section pointers to nested data. Follow `next_offset` with the same `dataset_version` until all records needed for the answer have been retrieved; never describe a partial page as a complete population. Restart if the dataset changes. This includes HMDA, CUSOs, CU acquisitions of banks, regulations, enforcement, FedNow, CDFI, leadership, fees, Canadian institutions, rankings and geographic markets.
