@@ -1,6 +1,6 @@
 {
   "name": "sloe-data",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "description": "Read-only licensed Sloe Data research on U.S. credit unions: financials, peer benchmarking, HMDA mortgage lending, CUSOs, mergers and regulatory data.",
   "author": {
     "name": "Sloe Data",
@@ -21,14 +21,15 @@
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "Sloe Data",
-    "shortDescription": "Query licensed CU, HMDA and market data",
-    "longDescription": "Sloe Data gives Codex read-only access to its licensed research catalog through a hosted MCP server. Query full credit-union profiles, original Call Report fields, HMDA mortgage lending and history, CUSOs, CU acquisitions of banks, regulatory data, leadership and geographic markets. Installing the plugin does not grant a data license; connect a licensed Sloe Data account through browser-based OAuth approval.",
+    "shortDescription": "Licensed credit union data",
+    "longDescription": "Sloe Data gives ChatGPT and Codex read-only access to its licensed research on every federally insured U.S. credit union. Look up an institution by name or NCUA charter, pull Call Report fields and quarterly history, benchmark against a peer group by state or asset tier, and compare up to five credit unions side by side. Go beyond the call report with HMDA mortgage lending and annual history, mergers and CU acquisitions of banks, CUSO and vendor relationships, branches, regulatory data, leadership and geographic markets.\n\nEvery answer keeps its reporting period and source attached, so you can cite it. All tools are read-only. The connector never writes, publishes or changes data.\n\nRequires a Sloe Data account with Data Access. Sign in once through Sloe Data in your browser and approve read-only access. No API key is pasted into the chat.",
     "developerName": "Sloe Data",
     "category": "Data & Analytics",
     "capabilities": [
       "Read"
     ],
     "websiteURL": "https://sloedata.com",
+    "supportURL": "https://mcp.sloedata.com/connector-docs.html#support",
     "privacyPolicyURL": "https://mcp.sloedata.com/connector-privacy.html",
     "termsOfServiceURL": "https://sloedata.com/terms",
     "defaultPrompt": [
@@ -36,6 +37,71 @@
       "Get HMDA mortgage lending and annual history for Navy Federal.",
       "Compare credit unions and their CUSO and vendor relationships."
     ],
-    "brandColor": "#171717"
+    "brandColor": "#5B2B54",
+    "brandColorDark": "#D5B9CF",
+    "logo": "./assets/logo.png",
+    "composerIcon": "./assets/logo.png"
+  },
+  "extensions": {
+    "com.openai": {
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Industry summary",
+              "prompt": "Give me the current U.S. credit union industry summary from Sloe Data.",
+              "tools_triggered": ["sloedata_get_industry_summary"],
+              "expected_behavior": "Reports total institutions, assets and other aggregates, and states the filing period and source the tool returned."
+            },
+            {
+              "description": "Find institutions by state and size",
+              "prompt": "Find the five largest credit unions in Michigan by total assets.",
+              "tools_triggered": ["sloedata_search_institutions"],
+              "expected_behavior": "Lists five Michigan credit unions with NCUA charter numbers and total assets, largest first, with the filing period."
+            },
+            {
+              "description": "Side-by-side comparison",
+              "prompt": "Compare Navy Federal, PenFed and BECU on net worth ratio, loan growth and return on assets.",
+              "tools_triggered": ["sloedata_search_institutions", "sloedata_compare_institutions"],
+              "expected_behavior": "Resolves each name to a charter, then shows the three metrics side by side from one release, with the period stated."
+            },
+            {
+              "description": "Peer benchmark",
+              "prompt": "Benchmark Suncoast Credit Union against Florida credit unions in its asset tier.",
+              "tools_triggered": ["sloedata_search_institutions", "sloedata_get_peers"],
+              "expected_behavior": "Describes the peer group (state, asset tier, number of peers) and compares Suncoast to the peer median on the returned metrics."
+            },
+            {
+              "description": "HMDA lending history",
+              "prompt": "Show Alliant Credit Union's HMDA mortgage lending history.",
+              "tools_triggered": ["sloedata_get_hmda"],
+              "expected_behavior": "Returns Alliant's HMDA lender record and annual application and origination history, with years and source."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Unrelated request",
+              "prompt": "What's the weather in Chicago this weekend?",
+              "expected_behavior": "Sloe Data is not called."
+            },
+            {
+              "description": "Moving money",
+              "prompt": "Move $500 from my credit union savings account to checking.",
+              "expected_behavior": "No Sloe Data tool is called. The assistant explains that Sloe Data is read-only research data and cannot access accounts or move money."
+            },
+            {
+              "description": "Bank, not credit union",
+              "prompt": "Use Sloe Data to pull JPMorgan Chase's deposits and branch count.",
+              "expected_behavior": "No institution lookup is forced. The assistant says Sloe Data covers credit unions, or reports that no credit union matched, and does not present bank figures as Sloe Data results."
+            }
+          ]
+        },
+        "commerce": false
+      },
+      "publication": {
+        "countries": ["US"],
+        "release_notes": "First public release of Sloe Data for ChatGPT: read-only access to licensed U.S. credit union financials, peer benchmarks, HMDA lending, mergers, CUSO and vendor relationships, and regulatory data."
+      }
+    }
   }
 }
