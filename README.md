@@ -12,12 +12,12 @@ codex mcp add sloe-data --url https://mcp.sloedata.com/data-mcp
 codex mcp login sloe-data
 ```
 
-Approve the browser connection while signed in to a Sloe Data account with
-Data Access. Restart the Codex desktop app or start a new task, then ask Codex to
+Approve the browser connection while signed in to a paid Sloe Data account
+(Individual, Organization or Data Access). Restart the Codex desktop app or start a new task, then ask Codex to
 use `sloedata_get_industry_summary`. Existing tasks can retain an old tool
 list. This route registers the read-only research tools directly; it does not add
 the optional plugin's skill and marketplace listing. Neither route grants a
-Data Access license by itself.
+Sloe Data subscription by itself.
 
 Sloe Data is not yet in the built-in public plugin catalog. The Git
 marketplace below is an optional tester/developer path. It uses system Git, so
@@ -77,7 +77,7 @@ yet. Use the connect step for your assistant above. Do not set
 `CUWIREDATA_API_KEY` for the public plugin path.
 
 **Tools return "Invalid or revoked API key"**: the connected account's key is
-revoked or not licensed for Data Access. Contact info@thecreditunionwire.com.
+revoked or the account no longer has an active paid plan. Contact info@thecreditunionwire.com.
 
 **The skill loads but no `sloedata_*` tools exist**: the client is holding a
 stale tool list. Reconnect, then start a new session or task.

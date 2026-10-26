@@ -9,8 +9,9 @@ mergers, CU acquisitions of banks, CUSO and vendor relationships, HMDA mortgage
 lending, regulatory and enforcement data, leadership, fees, rankings and
 geographic markets. Answers keep the reporting period and source attached.
 
-Installing this plugin does not grant data access. You need a Sloe Data account
-with Data Access. See [sloedata.com/pricing](https://sloedata.com/pricing).
+Installing this plugin does not grant data access. Any paid Sloe Data plan
+includes it: Individual, Organization or Data Access. See
+[sloedata.com/pricing](https://sloedata.com/pricing).
 
 ## What the plugin contains
 
@@ -85,8 +86,8 @@ and [documentation](https://mcp.sloedata.com/connector-docs.html).
 **"Connector is not authenticated"**: connect your account using the steps
 above.
 
-**"Invalid or revoked API key"**: the connected account is not licensed for
-Data Access. Email info@thecreditunionwire.com.
+**"Invalid or revoked API key"**: the connected account no longer has an active
+paid plan. Email info@thecreditunionwire.com.
 
 **The skill loads but no `sloedata_*` tools exist**: the client is holding a
 stale tool list. Reconnect, then start a new session or task.
