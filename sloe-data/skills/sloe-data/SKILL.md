@@ -85,6 +85,29 @@ The hosted MCP server exposes read-only tools:
 - Do not use editorial or admin MCP routes for Data Access requests.
 - For direct API examples, use `charter=5536`, not `charter_number=5536`.
 
+## Results that show only a count
+
+The server returns data in `structuredContent` and a short text summary. A
+message such as "Returned 20 records" is not the records themselves. Read the
+structured result when your client exposes it; do not treat a count-only
+summary as evidence that the underlying data is missing or the connector is
+broken.
+
+If the client exposes only a count or truncates the data, retry with a smaller
+request using the tool's supported arguments: narrow the institution or filter,
+reduce the page limit, or follow a returned section pointer to the specific
+fields needed. Prefer `sloedata_get_institution` for core figures before
+requesting the full profile or Call Report. Do not repeat the same oversized
+call unchanged or invent arguments the tool does not support.
+
+Preserve the returned release/version IDs across related calls and pages.
+Retrieve only the records needed for the user's question, within the existing
+license and bulk-export boundaries. If a smaller call still exposes only a
+summary, stop retrying and explain that the client has not exposed the detailed
+result. Report any figures you could actually read, identify the remaining gap,
+and do not infer values from counts, substitute another source, or request a new
+key or login solely because an otherwise successful call shows only a summary.
+
 ## Safe Answer Shape
 
 When summarizing tool output:
