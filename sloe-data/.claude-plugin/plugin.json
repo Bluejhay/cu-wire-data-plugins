@@ -1,7 +1,7 @@
 {
   "name": "sloe-data",
-  "version": "0.3.7",
-  "description": "Read-only licensed Sloe Data research on U.S. credit unions: financials, peer benchmarking, HMDA mortgage lending, CUSOs, mergers and regulatory data.",
+  "version": "0.4.0",
+  "description": "Read-only licensed Sloe Data research on U.S. credit unions and banks: financials, peer benchmarking, Call Reports, HMDA mortgage lending, CUSOs, mergers, bank holding companies and regulatory data.",
   "author": {
     "name": "Sloe Data",
     "url": "https://sloedata.com"
@@ -11,10 +11,12 @@
   "license": "Proprietary",
   "keywords": [
     "credit-unions",
+    "banks",
     "sloe-data",
     "financial-data",
     "hmda",
     "ncua",
+    "fdic",
     "analytics"
   ],
   "icon": "./.claude-plugin/icon.png",

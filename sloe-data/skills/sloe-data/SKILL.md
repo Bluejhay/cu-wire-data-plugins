@@ -1,6 +1,6 @@
 ---
 name: sloe-data
-description: Use Sloe Data through the hosted read-only MCP server for licensed U.S. credit union data. Trigger when the user asks for Sloe Data, credit union industry summaries, credit union institution search, NCUA charter lookups, HMDA mortgage lending, CUSO networks, M&A, regulatory data, or other research through the Sloe Data product.
+description: Use Sloe Data through the hosted read-only MCP server for licensed U.S. credit union and bank data. Trigger when the user asks for Sloe Data, credit union industry summaries, credit union institution search, NCUA charter lookups, bank or bank holding company research, FDIC certificate lookups, bank screening or peer comparison, bank Call Reports, HMDA mortgage lending, CUSO networks, M&A, regulatory data, or other research through the Sloe Data product.
 ---
 
 # Sloe Data
@@ -27,10 +27,10 @@ the correct fix is an OAuth reconnect plus a fresh session or task.
 If a Sloe Data tool call fails because the connector is unauthenticated,
 unlicensed, expired, missing a bearer token, missing an API key, or otherwise
 unable to return licensed Sloe Data, stop and report the connection problem.
-Do not answer the Sloe Data request from public NCUA data, web search, cached
+Do not answer the Sloe Data request from public NCUA, FDIC or FFIEC data, web search, cached
 data, model memory, prior runs, screenshots, PDFs, or any other fallback source.
 
-Do not write a "using public NCUA fallback instead" response. That is a product
+Do not write a "using public NCUA fallback instead" or "using public FDIC data instead" response. That is a product
 failure because it disguises a licensed-connector setup problem as a data
 answer.
 
@@ -76,16 +76,24 @@ key or login solely because an otherwise successful call shows only a summary.
 
 ## Tools
 
-The hosted MCP server exposes read-only tools:
+The hosted MCP server exposes 42 read-only tools.
+
+Credit unions:
 
 - `sloedata_get_industry_summary`
 - `sloedata_search_institutions`
 - `sloedata_get_institution`
+- `sloedata_get_report`
 - `sloedata_get_history`
 - `sloedata_compare_institutions`
 - `sloedata_get_peers`
+- `sloedata_get_peer_rank`
 - `sloedata_get_branches`
 - `sloedata_get_industry_trends`
+- `sloedata_get_institution_intel`
+- `sloedata_search`
+- `sloedata_compare_cusos`
+- `sloedata_get_regulatory_radar`
 - `sloedata_get_mergers`
 - `sloedata_get_vendor_relationships`
 - `sloedata_list_datasets`
@@ -93,6 +101,30 @@ The hosted MCP server exposes read-only tools:
 - `sloedata_get_hmda`
 - `sloedata_get_institution_profile`
 - `sloedata_get_call_report`
+- `sloedata_combine_institutions`
+- `sloedata_get_forecast`
+- `sloedata_get_stress_test`
+
+Banks and bank holding companies:
+
+- `sloedata_get_bank_coverage`
+- `sloedata_search_banks`
+- `sloedata_get_bank`
+- `sloedata_get_bank_performance`
+- `sloedata_screen_banks`
+- `sloedata_get_bank_peer_trend`
+- `sloedata_list_bank_call_report_fields`
+- `sloedata_get_bank_call_report`
+- `sloedata_get_bank_deposit_market`
+- `sloedata_get_bank_mortgages`
+- `sloedata_get_bank_programs`
+- `sloedata_search_bank_enforcement`
+- `sloedata_get_bank_web_resources`
+- `sloedata_search_bank_holding_companies`
+- `sloedata_get_bank_parent_companies`
+- `sloedata_get_bank_holding_company`
+- `sloedata_list_bank_holding_company_accounts`
+- `sloedata_get_bank_holding_company_accounts`
 
 ## Usage Rules
 
@@ -113,7 +145,7 @@ The hosted MCP server exposes read-only tools:
 When summarizing tool output:
 
 1. State the returned period and source.
-2. Explain the filters or charter used.
+2. Explain the filters and the charter, FDIC certificate or RSSD used.
 3. Summarize only fields present in the returned data.
 4. Mention when a question requires a different license, endpoint, or human review.
 
@@ -122,16 +154,34 @@ When summarizing tool output:
 - Get the current U.S. credit union industry summary.
 - Find the largest credit unions in North Carolina.
 - Look up Navy Federal by NCUA charter 5536.
+- Find the largest banks in Michigan and show the largest one's latest financials.
+- Show a bank's UBPR performance ratios against its peer group.
+- Find a bank's parent holding company and its reported total assets.
 
 
 ## Choosing a tool
 
 - **One institution:** start with `sloedata_get_institution` for the core summary. Use `sloedata_get_institution_profile` for every approved profile field and history, and `sloedata_get_call_report` for the original reported field strings.
 - **Call Report fields:** read `/records`, then each record's `/fields`. Field definitions are in the `call-report-dictionary` dataset; check that its period matches the release before applying it.
-- **Populations beyond insured U.S. credit unions** (privately insured, Canadian, CUSOs and so on): `sloedata_search_institutions` covers federally insured credit unions only, so start from `sloedata_list_datasets`.
+- **Banks:** `sloedata_search_institutions` covers federally insured credit unions only. For an FDIC-insured bank or a bank holding company, use the bank tools below.
+- **Other populations** (privately insured or Canadian credit unions, CUSOs and so on): start from `sloedata_list_datasets`.
 - **HMDA lenders:** search `sloedata_get_hmda` with `lender` or `q` before saying a lender has no data. HMDA is refreshed separately from the institution profile. When several lenders match, resolve which one the user means before answering.
 - **Paging:** pass back the `release_id`, `platform_release_id` or `dataset_version` each result returns, so every page comes from the same release. If a call returns `dataset_changed` or `platform_release_changed`, start the read again.
 - **Missing values:** a null is a missing value, not zero.
+
+## Banks and bank holding companies
+
+Banks are a separate population from credit unions. Never pass an NCUA charter to a bank tool or an FDIC certificate to a credit union tool, and do not add bank and credit union figures together unless the user asks for a combined view and you label each source.
+
+- **Identify first:** find the bank with `sloedata_search_banks` and use its FDIC certificate (`cert`). Find a holding company with `sloedata_search_bank_holding_companies`, or from a bank with `sloedata_get_bank_parent_companies`, and use its `rssd`. When several institutions match a name, resolve which one the user means before answering.
+- **Coverage:** `sloedata_get_bank_coverage` lists the retained quarters and field IDs for each financial source. The FDIC reference series (`fdic`) and the original Call Report core (`cdr`) have different field IDs and different latest quarters; say which one a figure came from.
+- **One bank:** `sloedata_get_bank` returns one section at a time: financials, markets, ownership, history, mortgages or regulatory. Use `sloedata_get_bank_performance` for UBPR ratios and peer percentiles; a higher percentile is not a quality rating.
+- **Many banks:** `sloedata_screen_banks` ranks banks on one field for one quarter. `sloedata_get_bank_peer_trend` tracks one field against a size-based peer group that excludes the bank.
+- **Original accounts:** list account IDs with `sloedata_list_bank_call_report_fields`, then read values with `sloedata_get_bank_call_report`. A blank is not zero, and a numeric appearance does not establish a monetary unit. Most monetary values are USD thousands; keep the unit the tool returns.
+- **Truncated entries:** a large bank's result is outlined to stay readable. An entry such as `{ "truncated": true, "pointer": "/research/offices", "entries": 5416 }` is not missing data. Call the same tool with the same arguments plus that `pointer`, and page with `pointer_limit` and `pointer_offset` until `next_offset` is null. Never describe a truncated list or a partial page as the complete population.
+- **Pins:** pass back `bank_release_id` or `holding_release_id` from `release` on related calls and pages. If a call reports that bank or company data changed, start the read again.
+- **Limits to state:** a retained bank record is not necessarily an open bank. Enforcement search results are source records, not confirmed identity matches, and a missing match is not a clean history. Program records matched by name are labeled unconfirmed. Holding company scopes overlap and must not be summed.
+- **Not available:** bank bulk delivery and bank stress or projection scenarios are not connector tools.
 
 ## Full research access
 
