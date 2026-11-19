@@ -1,7 +1,7 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "sloe-data",
-  "description": "Sloe Data plugins for read-only, licensed U.S. credit union data access.",
+  "description": "Sloe Data plugins for read-only, licensed U.S. credit union and bank data access.",
   "owner": {
     "name": "Sloe Data",
     "email": "info@thecreditunionwire.com"
@@ -9,7 +9,7 @@
   "plugins": [
     {
       "name": "sloe-data",
-      "description": "Read-only licensed Sloe Data research on U.S. credit unions: financials, peer benchmarking, HMDA mortgage lending, CUSOs, mergers and regulatory data.",
+      "description": "Read-only licensed Sloe Data research on U.S. credit unions and banks: financials, peer benchmarking, Call Reports, HMDA mortgage lending, CUSOs, mergers, bank holding companies and regulatory data.",
       "author": {
         "name": "Sloe Data",
         "url": "https://sloedata.com"
